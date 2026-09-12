@@ -56,10 +56,10 @@ answers with the contact card a phone offers to save.">
     code { font-family: var(--mono); font-size: 0.92em }
     .quiet { color: var(--dim) }
     .file { font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em;
-            color: var(--gold); display: block; margin: 0 0 9px }
+            color: var(--gold); display: block; margin: 0 0 7px }
     .plain { font-size: 12.5px; letter-spacing: 0.04em; color: var(--dim) }
 
-    .sheet { max-width: 1040px; margin: clamp(18px, 4vw, 54px) auto; background: var(--panel);
+    .sheet { max-width: 1040px; margin: clamp(12px, 1.4vw, 18px) auto; background: var(--panel);
              border: 1px solid var(--gold-dim); border-radius: 6px;
              box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.9) }
     .band { height: 9px; background:
@@ -70,45 +70,45 @@ answers with the contact card a phone offers to save.">
     .band.bottom { border-radius: 0 0 5px 5px }
     .pad { padding-left: clamp(22px, 4vw, 56px); padding-right: clamp(22px, 4vw, 56px) }
 
-    .top { padding-top: 22px; padding-bottom: 22px; display: flex; gap: 20px;
+    .top { padding-top: 14px; padding-bottom: 14px; display: flex; gap: 20px;
            justify-content: space-between; align-items: center;
            border-bottom: 1px solid var(--gold-dim) }
     .wordmark { display: flex; align-items: center; gap: 11px }
     .wordmark span { font-family: var(--head); font-size: 21px; letter-spacing: 0.01em }
 
-    h1 { font-size: clamp(34px, 4.4vw, 60px); line-height: 1.06; margin: 0 0 20px }
-    .lede { font-size: clamp(16px, 1.15vw, 19px); line-height: 1.62; margin: 0; max-width: 40em }
+    h1 { font-size: clamp(31px, 3.4vw, 43px); line-height: 1.05; margin: 0 0 12px }
+    .lede { font-size: clamp(15.5px, 1.1vw, 18px); line-height: 1.55; margin: 0; max-width: 44em }
 
     .work { display: grid; grid-template-columns: minmax(0, 1fr) 296px;
-            gap: clamp(30px, 4vw, 62px); align-items: start; margin-top: clamp(38px, 5vw, 58px) }
+            gap: clamp(26px, 4vw, 56px); align-items: start; margin-top: clamp(22px, 2.2vw, 26px) }
     @media (max-width: 880px) { .work { grid-template-columns: minmax(0, 1fr) } }
 
     pre { background: var(--sunk); border: 1px solid var(--gold-dim); border-radius: 5px;
-          padding: 15px 17px; overflow-x: auto; font-size: 13.5px; line-height: 1.7;
-          font-family: var(--mono); margin: 0 0 26px; color: var(--cream) }
+          padding: 12px 16px; overflow-x: auto; font-size: 13.5px; line-height: 1.55;
+          font-family: var(--mono); margin: 0 0 13px; color: var(--cream) }
     pre .k { color: var(--gold) } pre .s { color: #8fc7a0 } pre .c { color: var(--dim) }
     .after { margin: -16px 0 26px; font-size: 13.5px; line-height: 1.6 }
 
     /* the card the page hands out, drawn as a phone would draw it once it is saved */
     .vcard { display: block; border: 1px solid var(--gold-dim); border-radius: 8px;
-             background: var(--sunk); padding: 22px 20px 20px; text-align: center;
+             background: var(--sunk); padding: 18px 20px 17px; text-align: center;
              color: var(--cream); transition: border-color 0.2s ease, transform 0.2s ease }
     .vcard:hover { border-color: var(--gold); transform: translateY(-2px); color: var(--cream) }
-    .vcard img { width: 82px; height: 82px; display: block; margin: 0 auto 13px }
+    .vcard img { width: 66px; height: 66px; display: block; margin: 0 auto 10px }
     .vcard b { display: block; font-family: var(--head); font-weight: 600; font-size: 21px }
     .vcard .org { display: block; font-size: 12.5px; color: var(--dim); margin-top: 3px }
-    .vcard dl { margin: 17px 0 0; padding: 15px 0 0; border-top: 1px solid var(--gold-dim);
+    .vcard dl { margin: 13px 0 0; padding: 12px 0 0; border-top: 1px solid var(--gold-dim);
                 text-align: left; font-size: 12.5px; line-height: 1.5 }
     .vcard dt { color: var(--dim); font-size: 10.5px; letter-spacing: 0.14em;
                 text-transform: uppercase }
-    .vcard dd { margin: 1px 0 11px; font-family: var(--mono); font-size: 12px;
+    .vcard dd { margin: 1px 0 7px; font-family: var(--mono); font-size: 12px;
                 overflow-wrap: anywhere }
     .vcard dd:last-child { margin-bottom: 0 }
-    .vcard .cta { display: block; margin-top: 17px; padding: 9px; border-radius: 4px;
+    .vcard .cta { display: block; margin-top: 14px; padding: 8px; border-radius: 4px;
                   background: var(--gold); color: var(--ink); font-weight: 500; font-size: 13.5px }
-    .note { font-size: 12.5px; line-height: 1.55; color: var(--dim); margin: 12px 2px 0 }
+    .note { font-size: 12.5px; line-height: 1.5; color: var(--dim); margin: 9px 2px 0 }
 
-    .foot { padding-top: 20px; padding-bottom: 20px; border-top: 1px solid var(--gold-dim);
+    .foot { padding-top: 12px; padding-bottom: 12px; border-top: 1px solid var(--gold-dim);
             display: flex; justify-content: space-between; align-items: center;
             flex-wrap: wrap; gap: 12px }
 
@@ -137,7 +137,7 @@ answers with the contact card a phone offers to save.">
     </span>
   </div>
 
-  <div class="pad" style="padding-top: clamp(40px, 6vh, 76px); padding-bottom: clamp(40px, 6vh, 70px)">
+  <div class="pad" style="padding-top: clamp(24px, 2.8vh, 32px); padding-bottom: clamp(22px, 2.4vh, 24px)">
     <h1>Give your Rails app a vCard</h1>
     <p class="lede quiet">Crest answers <code>GET /houseaccount.vcf</code> with a contact card. A
       phone offers to save it, and your next text arrives under a name instead of ten digits.</p>
