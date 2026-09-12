@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img"
+     aria-label="The HouseAccount cube">
+  <rect width="512" height="512" fill="#ffffff"/>
+  <g fill="none" stroke="#3b8ae8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256.0 302.0 Q256.0 256.0 295.8 233.0 L406.2 169.3 Q446.0 146.3 446.0 192.3 L446.0 319.7
+             Q446.0 365.7 406.2 388.7 L295.8 452.4 Q256.0 475.4 256.0 429.4 Z" fill="#1B5288"/>
+    <path d="M216.2 59.6 Q256.0 36.6 295.8 59.6 L406.2 123.3 Q446.0 146.3 446.0 192.3 L446.0 319.7
+             Q446.0 365.7 406.2 388.7 L295.8 452.4 Q256.0 475.4 216.2 452.4 L105.8 388.7
+             Q66.0 365.7 66.0 319.7 L66.0 192.3 Q66.0 146.3 105.8 123.3 Z"/>
+    <path d="M256.0 256.0 L95.4 163.3"/>
+    <path d="M256.0 256.0 L416.6 163.3"/>
+    <path d="M256.0 256.0 L256.0 441.4"/>
+  </g>
+</svg>
