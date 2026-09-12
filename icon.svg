@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img"
      aria-label="A heraldic shield bearing a chevron">
-  <rect width="512" height="512" rx="96" fill="#1a1338"/>
   <g fill="none" stroke="#3b8ae8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M256 56 L434 114 C434 300 358 408 256 456 C154 408 78 300 78 114 Z"/>
-    <path d="M152 272 L256 190 L360 272"/>
+    <path d="M256 44 L446 106 C446 300 366 414 256 466 C146 414 66 300 66 106 Z"/>
+    <path d="M160 262 L256 166 L352 262 L352 354 L256 258 L160 354 Z" fill="#1B5288"/>
   </g>
 </svg>
