@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crest — a card your app is saved under</title>
+<meta name="description" content="A Ruby gem that answers a .vcf route with the contact card a
+phone offers to save, so a text from an unknown number arrives under a name.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Crest">
+<meta property="og:description" content="A card your app is saved under. One line in routes.rb
+answers with the vCard a phone offers to save.">
+<meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:wght@400;500&display=swap">
+  <style>
+    :root {
+      --ink: oklch(0.96 0.012 190); --dim: oklch(0.76 0.022 260); --bg: oklch(0.19 0.055 295);
+      --panel: oklch(0.235 0.058 295); --line: oklch(0.35 0.055 295);
+      --mint: oklch(0.86 0.14 172); --mint-dim: oklch(0.62 0.10 172);
+      --mint-lit: oklch(0.93 0.11 172); --halo: oklch(0.66 0.12 172 / 0.38);
+      --glass: oklch(0.27 0.055 295); --hush: oklch(0.31 0.05 295);
+      --head: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+      --text: 'Public Sans', ui-sans-serif, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--text) }
+    h1, h3, .display { font-family: var(--head); font-weight: 600; letter-spacing: -0.02em }
+    a { color: var(--mint); text-decoration: none; border-bottom: 1px solid var(--mint-dim) }
+    a:hover { color: var(--mint-lit) }
+    code { font-family: ui-monospace, Menlo, monospace; font-size: 0.92em }
+    .label { font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+             font-weight: 500; color: var(--mint) }
+    .plain { font-size: 12.5px; letter-spacing: 0.04em; color: var(--dim) }
+    .quiet { color: var(--dim) }
+    .pad { padding-left: clamp(24px, 4.5vw, 88px); padding-right: clamp(24px, 4.5vw, 88px) }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+            padding: 26px 24px }
+    svg .ln { fill: none; stroke: var(--mint); stroke-width: 1.2;
+              stroke-linecap: round; stroke-linejoin: round }
+    pre { background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+          padding: 18px 20px; overflow-x: auto; font-size: 13.5px; line-height: 1.75;
+          font-family: ui-monospace, Menlo, monospace; margin: 0 }
+    pre .k { color: var(--mint) } pre .s { color: oklch(0.88 0.09 95) }
+    pre .c { color: var(--dim) }
+
+    .body { display: grid; grid-template-columns: minmax(0, 1fr) 400px;
+            gap: clamp(36px, 4.5vw, 92px); align-items: start }
+    @media (max-width: 1080px) { .body { grid-template-columns: minmax(0, 1fr) }
+                                 .stage { display: none } }
+    h1 { font-size: clamp(38px, 4.6vw, 70px); line-height: 1.03; margin: 0 0 24px }
+    .lede { font-size: clamp(16.5px, 1.2vw, 20px); line-height: 1.6; margin: 0 0 10px }
+
+    /* ---- two phones: the same text before the card is saved, and after ---- */
+    .stage { position: sticky; top: 36px; display: grid; gap: 26px }
+    .phone { border: 1px solid var(--line); border-radius: 26px; background: var(--glass);
+             padding: 14px 14px 20px; box-shadow: 0 30px 60px -30px var(--halo) }
+    .bar { display: flex; align-items: center; gap: 10px; padding: 6px 4px 14px;
+           border-bottom: 1px solid var(--line) }
+    .who { font-family: var(--head); font-weight: 600; font-size: 15.5px }
+    .pic { width: 30px; height: 30px; border-radius: 50%; flex: none;
+           background: var(--hush); display: grid; place-items: center }
+    .pic svg { width: 19px; height: 19px; display: block }
+    .said { margin: 16px 4px 0; background: var(--hush); border-radius: 16px 16px 16px 4px;
+            padding: 11px 14px; font-size: 14px; line-height: 1.5; max-width: 84% }
+    .known .pic { background: var(--mint) }
+    .known .who { color: var(--mint) }
+    .tag { margin: 12px 4px 0; font-size: 11.5px; letter-spacing: 0.04em }
+  </style>
+</head>
+<body>
+<div>
+
+  <div class="pad" style="padding-top: 24px; padding-bottom: 24px; display: flex;
+              justify-content: space-between; align-items: center; gap: 20px;
+              border-bottom: 1px solid var(--line)">
+    <span style="display: flex; align-items: center; gap: 11px">
+      <img src="icon.svg" alt="" width="26" height="26" style="display: block; border-radius: 6px">
+      <span class="display" style="font-size: 19px; letter-spacing: 0.02em">Crest</span>
+    </span>
+    <span style="display: flex; gap: 26px">
+      <a href="https://github.com/claudiob/crest" style="font-size: 14.5px">Source code</a>
+      <a href="https://rubydoc.info/gems/crest" style="font-size: 14.5px">Documentation</a>
+    </span>
+  </div>
+
+  <div class="pad body" style="padding-top: clamp(48px, 7vh, 92px); padding-bottom: 72px">
+
+    <div>
+      <h1>A card your app is saved under.</h1>
+      <p class="lede quiet">Crest answers <code>GET /houseaccount.vcf</code> with a contact card.
+        A phone offers to save it, and your next text arrives under a name instead of ten digits.</p>
+
+      <p class="label" style="margin: 46px 0 14px">One line in config/routes.rb</p>
+      <pre><span class="k">crest</span> <span class="s">'houseaccount.vcf'</span></pre>
+
+      <p class="label" style="margin: 30px 0 14px">One initializer</p>
+      <pre>Crest.configure <span class="k">do</span> |config|
+  config.name  = <span class="s">'HouseAccount'</span>
+  config.url   = <span class="s">'https://houseaccount.com/'</span>
+  config.photo = Rails.root.join <span class="s">'public/cube.png'</span>
+  config.phone = -&gt; { Delivery::Twilio.sender }
+<span class="k">end</span></pre>
+
+      <div style="display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                  margin: 52px 0 0">
+        <div class="card">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><g class="ln">
+            <path d="M7 4h12a2 2 0 012 2v18a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2z"/>
+            <path d="M13 22h4"/></g></svg>
+          <h3 style="font-size: 19px; margin: 14px 0 8px">A route, not an engine</h3>
+          <p style="font-size: 14.5px; line-height: 1.65; margin: 0" class="quiet">You name the
+            path, because the filename is your app's own name. And because it is a route, the line
+            goes inside a <code>scope</code> or behind <code>constraints</code> if you want it
+            there — which a mount point cannot do.</p>
+        </div>
+        <div class="card">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><g class="ln">
+            <path d="M15 4l11 3.6c0 11.3-4.6 17.9-11 21C8.6 25.5 4 18.9 4 7.6z"/>
+            <path d="M10 17l5-4 5 4"/></g></svg>
+          <h3 style="font-size: 19px; margin: 14px 0 8px">Public by definition</h3>
+          <p style="font-size: 14.5px; line-height: 1.65; margin: 0" class="quiet">The controller
+            descends from <code>ActionController::Base</code> and not from your
+            <code>ApplicationController</code>. A phone fetches the card with no session, so an
+            inherited authentication filter would refuse the one request it answers.</p>
+        </div>
+        <div class="card">
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><g class="ln">
+            <circle cx="15" cy="15" r="11"/><path d="M15 8v7l5 3"/></g></svg>
+          <h3 style="font-size: 19px; margin: 14px 0 8px">Read again every time</h3>
+          <p style="font-size: 14.5px; line-height: 1.65; margin: 0" class="quiet">Every setting may
+            be a value or something callable, and a callable is asked on each request. A number read
+            out of the environment is then right in production and in staging, with no restart.</p>
+        </div>
+      </div>
+
+      <p class="label" style="margin: 46px 0 14px">How to install</p>
+      <pre><span class="c"># in your Gemfile</span>
+<span class="k">gem</span> <span class="s">'crest'</span>, <span class="s">'~&gt; 0.1.0'</span></pre>
+      <p class="lede quiet" style="margin-top: 16px; font-size: 15.5px">Crest is below
+        <code>1.0</code>, so the pin stops short of <code>0.2.0</code>. The API reference for what
+        is published today is at
+        <a href="https://rubydoc.info/gems/crest">rubydoc.info/gems/crest</a>.</p>
+    </div>
+
+    <div class="stage">
+      <div>
+        <span class="label">Before</span>
+        <div class="phone" style="margin-top: 12px">
+          <div class="bar">
+            <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#9d93c4"
+                  stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/>
+                  <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
+            <span class="who quiet">+1 (800) 555-0100</span>
+          </div>
+          <p class="said">Your plumber is on the way. He'll be there by 2pm.</p>
+          <p class="tag plain">Unknown number</p>
+        </div>
+      </div>
+
+      <div>
+        <span class="label">After the card is saved</span>
+        <div class="phone known" style="margin-top: 12px">
+          <div class="bar">
+            <span class="pic"><svg viewBox="0 0 512 512" fill="none" stroke="#1a1338"
+                  stroke-width="44" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M256 56 L434 114 C434 300 358 408 256 456 C154 408 78 300 78 114 Z"/>
+                  <path d="M152 272 L256 190 L360 272"/></svg></span>
+            <span class="who">HouseAccount</span>
+          </div>
+          <p class="said">Your plumber is on the way. He'll be there by 2pm.</p>
+          <p class="tag plain">Saved from houseaccount.vcf</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pad plain" style="padding-top: 24px; padding-bottom: 24px;
+              border-top: 1px solid var(--line); display: flex; justify-content: space-between;
+              flex-wrap: wrap; gap: 12px">
+    <span>MIT license</span>
+    <span>By <a href="https://github.com/claudiob">claudiob</a></span>
+  </div>
+</div>
+</body>
+</html>
