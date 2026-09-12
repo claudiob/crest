@@ -11,7 +11,7 @@ ruby -e "
   require 'pathname'
   require 'crest/card'
   print Crest::Card.new(name: 'HouseAccount', org: 'HouseAccount, Inc.',
-                        phone: '+18005550100', email: 'support@houseaccount.com',
+                        phone: '+17744687322', email: 'support@houseaccount.com',
                         url: 'https://houseaccount.com/',
                         photo: Pathname.new('.cube.png')).to_s
 " > houseaccount.vcf
