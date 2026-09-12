@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crest — a card your app is saved under</title>
+<title>Crest — give your Rails app a vCard</title>
 <meta name="description" content="A Ruby gem that answers a .vcf route with the contact card a
 phone offers to save, so a text from an unknown number arrives under a name.">
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -12,8 +12,8 @@ phone offers to save, so a text from an unknown number arrives under a name.">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta property="og:title" content="Crest">
-<meta property="og:description" content="A card your app is saved under. One line in routes.rb
-answers with the vCard a phone offers to save.">
+<meta property="og:description" content="Give your Rails app a vCard. One line in routes.rb
+answers with the contact card a phone offers to save.">
 <meta property="og:type" content="website">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Public+Sans:wght@400;500&family=Quicksand:wght@500&display=swap">
   <style>
@@ -94,8 +94,7 @@ answers with the vCard a phone offers to save.">
              background: var(--sunk); padding: 22px 20px 20px; text-align: center;
              color: var(--cream); transition: border-color 0.2s ease, transform 0.2s ease }
     .vcard:hover { border-color: var(--gold); transform: translateY(-2px); color: var(--cream) }
-    .vcard img { width: 74px; height: 74px; border-radius: 50%; display: block;
-                 margin: 0 auto 13px; border: 1px solid var(--gold-dim) }
+    .vcard img { width: 82px; height: 82px; display: block; margin: 0 auto 13px }
     .vcard b { display: block; font-family: var(--head); font-weight: 600; font-size: 21px }
     .vcard .org { display: block; font-size: 12.5px; color: var(--dim); margin-top: 3px }
     .vcard dl { margin: 17px 0 0; padding: 15px 0 0; border-top: 1px solid var(--gold-dim);
@@ -139,7 +138,7 @@ answers with the vCard a phone offers to save.">
   </div>
 
   <div class="pad" style="padding-top: clamp(40px, 6vh, 76px); padding-bottom: clamp(40px, 6vh, 70px)">
-    <h1>A card your app is saved under.</h1>
+    <h1>Give your Rails app a vCard</h1>
     <p class="lede quiet">Crest answers <code>GET /houseaccount.vcf</code> with a contact card. A
       phone offers to save it, and your next text arrives under a name instead of ten digits.</p>
 
@@ -147,10 +146,6 @@ answers with the vCard a phone offers to save.">
       <div>
         <span class="file">Gemfile</span>
         <pre><span class="k">gem</span> <span class="s">'crest'</span>, <span class="s">'~&gt; 0.1.0'</span></pre>
-        <p class="after quiet">Below <code>1.0</code>, so the pin stops short of
-          <code>0.2.0</code>. What is published today is documented at
-          <a href="https://rubydoc.info/gems/crest">rubydoc.info/gems/crest</a>.</p>
-
         <span class="file">config/routes.rb</span>
         <pre><span class="k">crest</span> <span class="s">'houseaccount.vcf'</span></pre>
 
