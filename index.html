@@ -102,7 +102,7 @@ answers with the vCard a phone offers to save.">
   config.name  = <span class="s">'HouseAccount'</span>
   config.url   = <span class="s">'https://houseaccount.com/'</span>
   config.photo = Rails.root.join <span class="s">'public/cube.png'</span>
-  config.phone = -&gt; { Delivery::Twilio.sender }
+  config.phone = -&gt; { Twilio.sender }
 <span class="k">end</span></pre>
 
       <div style="display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
