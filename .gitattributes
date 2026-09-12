@@ -1,0 +1,2 @@
+# A vCard is CRLF-delimited by its specification, so git must not normalize one to LF.
+*.vcf -text
